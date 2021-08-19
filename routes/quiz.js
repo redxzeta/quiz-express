@@ -2,6 +2,7 @@ import express from "express";
 import {
   createQuiz,
   deleteQuiz,
+  findQuizById,
   getQuiz,
   updateQuiz,
 } from "../controllers/quiz.js";
@@ -15,5 +16,7 @@ router.post("/", createQuiz);
 router.patch("/:id", updateQuiz);
 
 router.delete("/:id", deleteQuiz);
+
+router.get("/:id", findQuizById);
 
 export default router;

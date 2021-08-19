@@ -45,3 +45,13 @@ export const deleteQuiz = async (req, res) => {
   await QuizData.findByIdAndDelete(id);
   res.json({ message: "Quiz Deleted successfully" });
 };
+
+export const findQuizById = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const quiz = await QuizData.findById(id);
+    res.status(200).json(quiz);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
